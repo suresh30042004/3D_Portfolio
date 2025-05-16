@@ -3,8 +3,23 @@ import { words } from "../constants/index.js";
 import Button from "../components/button.jsx";
 import HeroExperience from "../components/HeroModels/HeroExperience.jsx";
 
+import {useGSAP} from "@gsap/react";
+import gsap from "gsap";
+
 
 const Hero = () => {
+
+    useGSAP(()=>{
+        gsap.fromTo(".  hero-text h1 span",
+            {
+                y: 50,
+                opacity: 0,
+            },{
+
+            },
+        })
+    })
+
     return (
         <section id="hero" className="relative overflow-hidden">
             <div className="absolute top-0 left-0 z-10">
@@ -50,7 +65,7 @@ const Hero = () => {
 
                 {/* Right: 3D_Model */}
                 <figure>
-                    <div className="hero-3d-layout ">
+                    <div className="hero-3d-layout mt-50 ms-auto ">
                         <HeroExperience />
                     </div>
                 </figure>
